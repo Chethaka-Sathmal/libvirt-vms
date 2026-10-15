@@ -1,0 +1,6 @@
+#cloud-config
+hostname: ${VM_NAME}
+users:
+  - name: user 
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
