@@ -1,5 +1,5 @@
 #cloud-config
-hostname: ${VM_NAME}
+hostname: {VM_NAME}
 users:
   - name: user 
     sudo: ALL=(ALL) NOPASSWD:ALL
