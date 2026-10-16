@@ -4,3 +4,6 @@ users:
   - name: user 
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
+    ssh_authorized_keys:
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJQihVDLeixtI2zHw2H2xxO4bM5+z0X6Y/42aWA/5od csathmal@mary-poppins
+
