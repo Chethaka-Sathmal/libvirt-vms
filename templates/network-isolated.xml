@@ -1,0 +1,29 @@
+<!--
+  Isolated network template: virtual machines can reach each other and the host, but not the internet.
+
+  Placeholders (fill with envsubst):
+    ${NET_NAME}    network name, e.g. blog-001-internal
+    ${BRIDGE}      host bridge name, max 15 characters, must be unused, e.g. virbr-b001i
+    ${NET_PREFIX}  first three octets of the subnet, e.g. 192.168.111
+
+  Render:
+    export NET_NAME=blog-001-internal BRIDGE=virbr-b001i NET_PREFIX=192.168.111
+    envsubst '${NET_NAME} ${BRIDGE} ${NET_PREFIX}' < network-isolated.xml > $NET_NAME.xml
+-->
+<network>
+  <name>${NET_NAME}</name>
+
+  <!-- No <forward> element: traffic never leaves this network -->
+
+  <bridge name='${BRIDGE}' stp='on' delay='0'/>
+
+  <!-- Machines on this network can reach each other by name, e.g. vm1.blog-001-internal.lab -->
+  <domain name='${NET_NAME}.lab' localOnly='yes'/>
+
+  <!-- The host's address on this network -->
+  <ip address='${NET_PREFIX}.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='${NET_PREFIX}.100' end='${NET_PREFIX}.200'/>
+    </dhcp>
+  </ip>
+</network>
