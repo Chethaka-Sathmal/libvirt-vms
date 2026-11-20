@@ -1,0 +1,20 @@
+#cloud-config
+hostname: "${HOSTNAME}"
+users:
+  - name: user 
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHKfCzqLVGDkua3Jofwp2lVpKLqJiUKF1f+es9OSiOpw devel-pool
+packages:
+  - git
+write_files:
+  - path: /home/user/.gitconfig
+    owner: user:user
+    defer: true
+    content: | 
+      [user]
+          name = Chethaka Sathmal
+          email = csathmal24@gmail.com
+      [init]
+          defaultBranch = main

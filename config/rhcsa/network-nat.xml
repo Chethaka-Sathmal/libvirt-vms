@@ -1,0 +1,18 @@
+<network>
+  <name>rhcsa</name>
+
+  <!-- Outbound traffic is translated to the host's address. Remove this line for an isolated network. -->
+  <forward mode='nat'/>
+
+  <bridge name='virbir-rhcsa' stp='on' delay='0'/>
+
+  <!-- Machines on this network can reach each other by name, e.g. vm1.blog-001.lab -->
+  <domain name='rhcsa.lab' localOnly='yes'/>
+
+  <!-- The host's address on this network; machines use it as gateway and DNS server -->
+  <ip address='192.168.152.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.152.100' end='192.168.152.200'/>
+    </dhcp>
+  </ip>
+</network>

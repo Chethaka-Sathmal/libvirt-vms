@@ -1,0 +1,19 @@
+<pool type='dir'>
+  <name>devel</name>
+  <uuid>b0defa06-3386-4cda-8526-518ba29a2929</uuid>
+  <capacity unit='bytes'>1021414735872</capacity>
+  <allocation unit='bytes'>330887196672</allocation>
+  <available unit='bytes'>690527539200</available>
+  <source>
+  </source>
+  <target>
+    <path>/var/lib/libvirt/images/devel</path>
+    <permissions>
+      <mode>0755</mode>
+      <owner>0</owner>
+      <group>0</group>
+      <label>unconfined_u:object_r:virt_image_t:s0</label>
+    </permissions>
+  </target>
+</pool>
+

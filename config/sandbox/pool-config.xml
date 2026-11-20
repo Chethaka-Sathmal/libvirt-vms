@@ -1,0 +1,19 @@
+<pool type='dir'>
+  <name>sandbox</name>
+  <uuid>3aa64a5f-a60e-4123-b3c8-e801cba649af</uuid>
+  <capacity unit='bytes'>1021414735872</capacity>
+  <allocation unit='bytes'>330887766016</allocation>
+  <available unit='bytes'>690526969856</available>
+  <source>
+  </source>
+  <target>
+    <path>/var/lib/libvirt/images/sandbox</path>
+    <permissions>
+      <mode>0755</mode>
+      <owner>0</owner>
+      <group>0</group>
+      <label>unconfined_u:object_r:virt_image_t:s0</label>
+    </permissions>
+  </target>
+</pool>
+

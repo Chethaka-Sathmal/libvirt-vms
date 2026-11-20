@@ -1,0 +1,19 @@
+<pool type='dir'>
+  <name>rhcsa</name>
+  <uuid>49f609b6-604d-4296-a676-c36549bea47b</uuid>
+  <capacity unit='bytes'>1021414735872</capacity>
+  <allocation unit='bytes'>330894135296</allocation>
+  <available unit='bytes'>690520600576</available>
+  <source>
+  </source>
+  <target>
+    <path>/var/lib/libvirt/images/rhcsa</path>
+    <permissions>
+      <mode>0755</mode>
+      <owner>0</owner>
+      <group>0</group>
+      <label>unconfined_u:object_r:virt_image_t:s0</label>
+    </permissions>
+  </target>
+</pool>
+

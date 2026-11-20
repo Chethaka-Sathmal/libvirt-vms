@@ -1,0 +1,35 @@
+#cloud-config
+
+# Identity: filled in by envsubst for each virtual machine
+hostname: "${HOSTNAME}"
+fqdn: "${HOSTNAME}.rhcsa.lab"
+manage_etc_hosts: true
+
+# Users and access
+users:
+  - name: user
+    lock_passwd: false
+    hashed_passwd: "$6$r940TYPqvjiDzvnd$jo/xh.NtLWHxqlLkZFLMC2bWHsvh4BWq77Va5bPePSbE19x1iLnEs3eleMTBKG7ubmUkxgr.0s6gB.RmPww.80"
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILOBHjt5hbv8JSiOv2/hytYxFOnQz8DgJ63XNar2huah rhcsa-pool
+ssh_pwauth: false
+
+# Red Hat registration: values come from your shell environment, not this file
+rh_subscription:
+  activation-key: "${RH_ACTIVATION_KEY}"
+  org: "${ORG_ID}"
+
+# System settings
+timezone: Asia/Colombo
+
+# Packages: installed after registration, since they come from Red Hat's repositories
+packages:
+  - qemu-guest-agent
+  - vim-enhanced
+  - bash-completion
+  - man-pages
+
+runcmd:
+  - systemctl enable --now qemu-guest-agent

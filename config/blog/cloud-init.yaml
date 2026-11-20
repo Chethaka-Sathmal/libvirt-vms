@@ -1,0 +1,30 @@
+#cloud-config
+
+# Identity
+hostname: "${HOSTNAME}"
+fqdn: "${HOSTNAME}.${BLOG_NUM}.lab"
+
+# Users and access
+users:
+  - name: user 
+    lock_passwd: false
+    hashed_passwd: "$6$r940TYPqvjiDzvnd$jo/xh.NtLWHxqlLkZFLMC2bWHsvh4BWq77Va5bPePSbE19x1iLnEs3eleMTBKG7ubmUkxgr.0s6gB.RmPww.80"
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID41EH6BsCFQDs+eI65qYl9f2p64xE+zkhf7DH5YOpxl blog-pool
+ssh_pwauth: false
+
+# System settings
+timezone: Asia/Colombo
+
+# Packages
+packages:
+  - qemu-guest-agent
+  - vim-enhanced
+  - bash-completion
+  - man-pages
+
+runcmd:
+  - systemctl enable --now qemu-guest-agent
+  - hostnamectl set-hostname "${VM_NAME}.${BLOG_NUM}.lab"

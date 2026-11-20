@@ -1,0 +1,19 @@
+<pool type='dir'>
+  <name>blog</name>
+  <uuid>172e54ba-76e9-466e-8ab0-8268701449a1</uuid>
+  <capacity unit='bytes'>1021414735872</capacity>
+  <allocation unit='bytes'>330888273920</allocation>
+  <available unit='bytes'>690526461952</available>
+  <source>
+  </source>
+  <target>
+    <path>/var/lib/libvirt/images/blog</path>
+    <permissions>
+      <mode>0755</mode>
+      <owner>0</owner>
+      <group>0</group>
+      <label>unconfined_u:object_r:virt_image_t:s0</label>
+    </permissions>
+  </target>
+</pool>
+

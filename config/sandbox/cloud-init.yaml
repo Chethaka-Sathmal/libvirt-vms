@@ -1,0 +1,8 @@
+#cloud-config
+hostname: "${HOSTNAME}"
+users:
+  - name: user 
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGV+u/RhfoW73ntv8wHCJCuQcN0EPo1fbDjiPaB/kkHz sandbox-pool
